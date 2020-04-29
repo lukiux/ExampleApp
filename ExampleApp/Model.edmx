@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="10.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="PACK_PACKING">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="LINE_ID" Type="number" Precision="11" Scale="0" />
+          <Property Name="ORDERNO" Type="varchar2" MaxLength="20" />
+          <Property Name="POSNO" Type="varchar2" MaxLength="20" />
+          <Property Name="LANGUAGE" Type="varchar2" MaxLength="20" />
+          <Property Name="LABELTYPE" Type="varchar2" MaxLength="20" />
+          <Property Name="FABRIC" Type="varchar2" MaxLength="20" />
+          <Property Name="TAGNO" Type="varchar2" MaxLength="20" />
+          <Property Name="MARKTEXT" Type="varchar2" MaxLength="250" />
+          <Property Name="DIAMETER" Type="varchar2" MaxLength="20" />
+          <Property Name="LENGTH" Type="varchar2" MaxLength="20" />
+          <Property Name="BARCODE" Type="varchar2" MaxLength="50" />
+          <Property Name="QTY" Type="number" Precision="11" Scale="0" />
+          <Property Name="QTYPACKED" Type="number" Precision="11" Scale="0" />
+          <Property Name="BOXWEIGHT_GL" Type="number" Precision="38" Scale="0" />
+          <Property Name="BOXHEIGHT" Type="number" Precision="11" Scale="0" />
+          <Property Name="BOXWIDTH" Type="number" Precision="11" Scale="0" />
+          <Property Name="BOXLENGTH" Type="number" Precision="11" Scale="0" />
+          <Property Name="STATUS" Type="varchar2" MaxLength="20" />
+          <Property Name="CATEGORY" Type="varchar2" MaxLength="20" />
+          <Property Name="DESCRIPTION" Type="varchar2" MaxLength="200" />
+          <Property Name="UNIT" Type="varchar2" MaxLength="20" />
+          <Property Name="CREATEDATE_GL" Type="varchar2" MaxLength="40" />
+          <Property Name="BOXSIZE" Type="varchar2" MaxLength="20" />
+          <Property Name="PARTTYPE" Type="varchar2" MaxLength="20" />
+          <Property Name="BOXNO" Type="number" Precision="38" Scale="0" />
+          <Property Name="BOXWEIGHT" Type="number" Precision="38" Scale="0" />
+          <Property Name="CREATEDATE" Type="date" />
+          <Property Name="ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PACK_WASHINGLABELS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ORDERNO" Type="varchar2" MaxLength="20" />
+          <Property Name="POSNO" Type="varchar2" MaxLength="20" />
+          <Property Name="LANGUAGE" Type="varchar2" MaxLength="20" />
+          <Property Name="LABELTYPE" Type="varchar2" MaxLength="20" />
+          <Property Name="DESCRIPTION" Type="varchar2" MaxLength="200" />
+          <Property Name="FABRIC" Type="varchar2" MaxLength="20" />
+          <Property Name="TAGNO" Type="varchar2" MaxLength="20" />
+          <Property Name="MARKTEXT" Type="varchar2" MaxLength="100" />
+          <Property Name="DIAMETER" Type="varchar2" MaxLength="20" />
+          <Property Name="LENGTH" Type="varchar2" MaxLength="20" />
+          <Property Name="BARCODE" Type="varchar2" MaxLength="50" />
+          <Property Name="QTY" Type="varchar2" MaxLength="20" />
+          <Property Name="STATUS" Type="varchar2" MaxLength="20" />
+          <Property Name="FLOWMODEL" Type="varchar2" MaxLength="20" />
+          <Property Name="UNITSYSTEM" Type="varchar2" MaxLength="20" />
+          <Property Name="ID" Type="number" Precision="11" Scale="0" Nullable="false" />
+        </EntityType>
+        <Function Name="INCREASE_BOXHEIGHT_BY_100" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="CONFIG">
+          <Parameter Name="ID" Type="number" Mode="In" />
+          <Parameter Name="BOXHEI" Type="number" Mode="In" />
+        </Function>
+        <Function Name="OUTPARAM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="CONFIG">
+          <Parameter Name="OUTP" Type="varchar2" Mode="Out" />
+        </Function>
+        <Function Name="SELECT_PACK_PACKING_BY_ID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="CONFIG">
+          <Parameter Name="P_ID" Type="long" Mode="In" />
+        </Function>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="PACK_PACKING" EntityType="Self.PACK_PACKING" Schema="CONFIG" store:Type="Tables" />
+          <EntitySet Name="PACK_WASHINGLABELS" EntityType="Self.PACK_WASHINGLABELS" Schema="CONFIG" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="PACK_PACKING">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="LINE_ID" Type="Int64" />
+          <Property Name="ORDERNO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="POSNO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LANGUAGE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LABELTYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FABRIC" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TAGNO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MARKTEXT" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DIAMETER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LENGTH" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BARCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="QTY" Type="Int64" />
+          <Property Name="QTYPACKED" Type="Int64" />
+          <Property Name="BOXWEIGHT_GL" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="BOXHEIGHT" Type="Int64" />
+          <Property Name="BOXWIDTH" Type="Int64" />
+          <Property Name="BOXLENGTH" Type="Int64" />
+          <Property Name="STATUS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CATEGORY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="UNIT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEDATE_GL" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="BOXSIZE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PARTTYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BOXNO" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="BOXWEIGHT" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="CREATEDATE" Type="DateTime" />
+          <Property Name="ID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PACK_WASHINGLABELS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ORDERNO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="POSNO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LANGUAGE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LABELTYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FABRIC" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TAGNO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MARKTEXT" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DIAMETER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LENGTH" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BARCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="QTY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FLOWMODEL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UNITSYSTEM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PACK_PACKING" EntityType="Self.PACK_PACKING" />
+          <EntitySet Name="PACK_WASHINGLABELS" EntityType="Self.PACK_WASHINGLABELS" />
+          <FunctionImport Name="INCREASE_BOXHEIGHT_BY_100">
+            <Parameter Name="ID" Mode="In" Type="Decimal" />
+            <Parameter Name="BOXHEI" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="OUTPARAM">
+          <Parameter Name="OUTP" Mode="Out" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SELECT_PACK_PACKING_BY_ID" ReturnType="Collection(Model.SELECT_PACK_PACKING_BY_ID_Result)">
+            <Parameter Name="P_ID" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="SELECT_PACK_PACKING_BY_ID_Result">
+          <Property Type="Decimal" Name="LINE_ID" Nullable="true" />
+          <Property Type="String" Name="ORDERNO" Nullable="true" />
+          <Property Type="String" Name="POSNO" Nullable="true" />
+          <Property Type="String" Name="LANGUAGE" Nullable="true" />
+          <Property Type="String" Name="LABELTYPE" Nullable="true" />
+          <Property Type="String" Name="FABRIC" Nullable="true" />
+          <Property Type="String" Name="TAGNO" Nullable="true" />
+          <Property Type="String" Name="MARKTEXT" Nullable="true" />
+          <Property Type="String" Name="DIAMETER" Nullable="true" />
+          <Property Type="String" Name="LENGTH" Nullable="true" />
+          <Property Type="String" Name="BARCODE" Nullable="true" />
+          <Property Type="Decimal" Name="QTY" Nullable="true" />
+          <Property Type="Decimal" Name="QTYPACKED" Nullable="true" />
+          <Property Type="Decimal" Name="BOXWEIGHT_GL" Nullable="true" />
+          <Property Type="Decimal" Name="BOXHEIGHT" Nullable="true" />
+          <Property Type="Decimal" Name="BOXWIDTH" Nullable="true" />
+          <Property Type="Decimal" Name="BOXLENGTH" Nullable="true" />
+          <Property Type="String" Name="STATUS" Nullable="true" />
+          <Property Type="String" Name="CATEGORY" Nullable="true" />
+          <Property Type="String" Name="DESCRIPTION" Nullable="true" />
+          <Property Type="String" Name="UNIT" Nullable="true" />
+          <Property Type="String" Name="CREATEDATE_GL" Nullable="true" />
+          <Property Type="String" Name="BOXSIZE" Nullable="true" />
+          <Property Type="String" Name="PARTTYPE" Nullable="true" />
+          <Property Type="Decimal" Name="BOXNO" Nullable="true" />
+          <Property Type="Decimal" Name="BOXWEIGHT" Nullable="true" />
+          <Property Type="DateTime" Name="CREATEDATE" Nullable="true" />
+          <Property Type="Decimal" Name="ID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="PACK_PACKING">
+            <EntityTypeMapping TypeName="Model.PACK_PACKING">
+              <MappingFragment StoreEntitySet="PACK_PACKING">
+                <ScalarProperty Name="LINE_ID" ColumnName="LINE_ID" />
+                <ScalarProperty Name="ORDERNO" ColumnName="ORDERNO" />
+                <ScalarProperty Name="POSNO" ColumnName="POSNO" />
+                <ScalarProperty Name="LANGUAGE" ColumnName="LANGUAGE" />
+                <ScalarProperty Name="LABELTYPE" ColumnName="LABELTYPE" />
+                <ScalarProperty Name="FABRIC" ColumnName="FABRIC" />
+                <ScalarProperty Name="TAGNO" ColumnName="TAGNO" />
+                <ScalarProperty Name="MARKTEXT" ColumnName="MARKTEXT" />
+                <ScalarProperty Name="DIAMETER" ColumnName="DIAMETER" />
+                <ScalarProperty Name="LENGTH" ColumnName="LENGTH" />
+                <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
+                <ScalarProperty Name="QTY" ColumnName="QTY" />
+                <ScalarProperty Name="QTYPACKED" ColumnName="QTYPACKED" />
+                <ScalarProperty Name="BOXWEIGHT_GL" ColumnName="BOXWEIGHT_GL" />
+                <ScalarProperty Name="BOXHEIGHT" ColumnName="BOXHEIGHT" />
+                <ScalarProperty Name="BOXWIDTH" ColumnName="BOXWIDTH" />
+                <ScalarProperty Name="BOXLENGTH" ColumnName="BOXLENGTH" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+                <ScalarProperty Name="CREATEDATE_GL" ColumnName="CREATEDATE_GL" />
+                <ScalarProperty Name="BOXSIZE" ColumnName="BOXSIZE" />
+                <ScalarProperty Name="PARTTYPE" ColumnName="PARTTYPE" />
+                <ScalarProperty Name="BOXNO" ColumnName="BOXNO" />
+                <ScalarProperty Name="BOXWEIGHT" ColumnName="BOXWEIGHT" />
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="Model.PACK_PACKING">
+              <ModificationFunctionMapping>
+                <UpdateFunction FunctionName="Model.Store.INCREASE_BOXHEIGHT_BY_100">
+                  <ScalarProperty Name="BOXHEIGHT" ParameterName="BOXHEI" Version="Current" />
+                  <ScalarProperty Name="ID" ParameterName="ID" Version="Current" />
+                </UpdateFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PACK_WASHINGLABELS">
+            <EntityTypeMapping TypeName="Model.PACK_WASHINGLABELS">
+              <MappingFragment StoreEntitySet="PACK_WASHINGLABELS">
+                <ScalarProperty Name="ORDERNO" ColumnName="ORDERNO" />
+                <ScalarProperty Name="POSNO" ColumnName="POSNO" />
+                <ScalarProperty Name="LANGUAGE" ColumnName="LANGUAGE" />
+                <ScalarProperty Name="LABELTYPE" ColumnName="LABELTYPE" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="FABRIC" ColumnName="FABRIC" />
+                <ScalarProperty Name="TAGNO" ColumnName="TAGNO" />
+                <ScalarProperty Name="MARKTEXT" ColumnName="MARKTEXT" />
+                <ScalarProperty Name="DIAMETER" ColumnName="DIAMETER" />
+                <ScalarProperty Name="LENGTH" ColumnName="LENGTH" />
+                <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
+                <ScalarProperty Name="QTY" ColumnName="QTY" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="FLOWMODEL" ColumnName="FLOWMODEL" />
+                <ScalarProperty Name="UNITSYSTEM" ColumnName="UNITSYSTEM" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="INCREASE_BOXHEIGHT_BY_100" FunctionName="Model.Store.INCREASE_BOXHEIGHT_BY_100" />
+          <FunctionImportMapping FunctionImportName="OUTPARAM" FunctionName="Model.Store.OUTPARAM" />
+          <FunctionImportMapping FunctionImportName="SELECT_PACK_PACKING_BY_ID" FunctionName="Model.Store.SELECT_PACK_PACKING_BY_ID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.SELECT_PACK_PACKING_BY_ID_Result">
+                <ScalarProperty Name="LINE_ID" ColumnName="LINE_ID" />
+                <ScalarProperty Name="ORDERNO" ColumnName="ORDERNO" />
+                <ScalarProperty Name="POSNO" ColumnName="POSNO" />
+                <ScalarProperty Name="LANGUAGE" ColumnName="LANGUAGE" />
+                <ScalarProperty Name="LABELTYPE" ColumnName="LABELTYPE" />
+                <ScalarProperty Name="FABRIC" ColumnName="FABRIC" />
+                <ScalarProperty Name="TAGNO" ColumnName="TAGNO" />
+                <ScalarProperty Name="MARKTEXT" ColumnName="MARKTEXT" />
+                <ScalarProperty Name="DIAMETER" ColumnName="DIAMETER" />
+                <ScalarProperty Name="LENGTH" ColumnName="LENGTH" />
+                <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
+                <ScalarProperty Name="QTY" ColumnName="QTY" />
+                <ScalarProperty Name="QTYPACKED" ColumnName="QTYPACKED" />
+                <ScalarProperty Name="BOXWEIGHT_GL" ColumnName="BOXWEIGHT_GL" />
+                <ScalarProperty Name="BOXHEIGHT" ColumnName="BOXHEIGHT" />
+                <ScalarProperty Name="BOXWIDTH" ColumnName="BOXWIDTH" />
+                <ScalarProperty Name="BOXLENGTH" ColumnName="BOXLENGTH" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+                <ScalarProperty Name="CREATEDATE_GL" ColumnName="CREATEDATE_GL" />
+                <ScalarProperty Name="BOXSIZE" ColumnName="BOXSIZE" />
+                <ScalarProperty Name="PARTTYPE" ColumnName="PARTTYPE" />
+                <ScalarProperty Name="BOXNO" ColumnName="BOXNO" />
+                <ScalarProperty Name="BOXWEIGHT" ColumnName="BOXWEIGHT" />
+                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
