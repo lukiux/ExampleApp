@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.Entity.Core.EntityClient;
-using System.Data.Entity.Core.Objects;
 using System.Globalization;
 using Oracle.DataAccess.Client;
 
